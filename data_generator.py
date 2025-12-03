@@ -65,10 +65,10 @@ def generate_sepsis_data():
             reward = 0
             
             if bp > 120: # Stabilized -> Discharge
-                reward = 100
+                reward = 1.0
                 done = True
             elif bp < 40: # Crash -> Death
-                reward = -100
+                reward = -1.0
                 done = True
             elif step == MAX_STEPS - 1: # Time limit
                 reward = 0
@@ -76,9 +76,9 @@ def generate_sepsis_data():
             else:
                 # Intermediate reward for keeping BP in safe range
                 if 65 <= bp <= 100:
-                    reward = 1
+                    reward = 0.01
                 else:
-                    reward = -1
+                    reward = -0.01
             
             all_transitions.append({
                 'patient_id': patient_id,

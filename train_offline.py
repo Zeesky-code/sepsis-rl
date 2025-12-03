@@ -11,7 +11,7 @@ BATCH_SIZE = 64
 EPOCHS = 20
 HIDDEN_DIM = 128
 LR = 3e-4
-CQL_ALPHA = 1.0
+CQL_ALPHA = 0.1
 
 # --- Dataset ---
 class SepsisDataset(Dataset):
